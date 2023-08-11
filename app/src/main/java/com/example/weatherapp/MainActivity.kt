@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val PERMISSION_REQUEST_ACCESS_LOCATION = 100
-        const var api_key = "7a4b8a65730079f3d0f9d59587722dce"
+        const val api_key = "7a4b8a65730079f3d0f9d59587722dce"
     }
 
     private fun checkPermissions(): Boolean {
