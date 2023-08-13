@@ -1,6 +1,6 @@
-package com.example.weatherapp.POJO
+package com.example.weatherapp.model
 
-data class WeatherData(
+data class WeatherModel(
     val base: String,
     val clouds: Clouds,
     val cod: Int,

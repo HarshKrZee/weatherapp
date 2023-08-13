@@ -1,4 +1,4 @@
-package com.example.weatherapp.POJO
+package com.example.weatherapp.model
 
 data class Rain(
     val `1h`: Double
