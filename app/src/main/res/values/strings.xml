@@ -16,4 +16,5 @@
     <string name="weather_type">Drizzle</string>
     <string name="sunrise">Sunrise</string>
     <string name="sunset">Sunset</string>
+    <string name="city">London</string>
 </resources>
