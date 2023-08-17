@@ -19,10 +19,6 @@
             android:layout_centerInParent="true"
             android:visibility="gone" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
         <RelativeLayout
             android:id="@+id/rl_main_layout"
@@ -48,11 +44,17 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleview"
+                android:layout_below="@+id/cv_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/rl_sub_layout"
-                android:layout_below="@+id/cv_toolbar">
+                android:layout_below="@+id/recycleview">
 
                 <LinearLayout
                     android:layout_width="match_parent"

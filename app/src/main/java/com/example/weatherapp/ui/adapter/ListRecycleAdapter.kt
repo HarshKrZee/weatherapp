@@ -10,18 +10,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.weatherapp.R
+import com.example.weatherapp.databinding.ActivityMainBinding
+import com.example.weatherapp.model.Item
 import com.example.weatherapp.room.WeatherData
+import com.example.weatherapp.viewModel.MainViewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ListRecycleAdapter(private val mList : List<WeatherData>?,val context: Context?) : RecyclerView.Adapter<ListRecycleAdapter.ViewHolder>() {
+class ListRecycleAdapter(private val mList : List<Item>, val viewModel : MainViewModel,val binding : ActivityMainBinding) : RecyclerView.Adapter<ListRecycleAdapter.ViewHolder>() {
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
 
         val city = view.findViewById<TextView>(R.id.text1)
-        val updatedat = view.findViewById<TextView>(R.id.text2)
-        val temp = view.findViewById<TextView>(R.id.text3)
+//        val updatedat = view.findViewById<TextView>(R.id.text2)
+//        val temp = view.findViewById<TextView>(R.id.text3)
 
 
     }
@@ -37,13 +40,11 @@ class ListRecycleAdapter(private val mList : List<WeatherData>?,val context: Con
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        holder.city.text = mList?.get(position)?.name
-        holder.updatedat.text = mList?.get(position)?.UpdateAt?.let {
-            dateFormatConverter(
-                it.toLong()
-            )
+        holder.city.text = mList[position].address.label
+        holder.city.setOnClickListener{
+            viewModel.getCityWeather(mList[position].address.city)
+            binding.recycleview.visibility = View.GONE
         }
-        holder.temp.text = mList?.get(position)?.Temperature.toString()
 
     }
 
